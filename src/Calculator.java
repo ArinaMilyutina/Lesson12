@@ -8,19 +8,13 @@ public class Calculator {
         while (true) {
             printMenu();
             Scanner scanner = new Scanner(System.in);
-            int choice1 = scanner.nextInt();
-            if (choice1 == 1) {
-                addition();
-            } else if (choice1 == 2) {
-                subtraction();
-
-            } else if (choice1 == 3) {
-                multiplication();
-
-            } else if (choice1 == 4) {
-                division();
-            } else if (choice1 == 5) {
-                System.exit(0);
+            String choice1 = scanner.nextLine();
+            switch (choice1) {
+                case "1" -> addition();
+                case "2" -> subtraction();
+                case "3" -> multiplication();
+                case "4" -> division();
+                case "5" -> System.exit(0);
             }
         }
 
@@ -62,6 +56,9 @@ public class Calculator {
         } else {
             System.out.println("Ошибка! На 0 делить нельзя, повторите ввод.");
             enterTheNumber();
+            float quotient = number1 / number2;
+            System.out.println("Частное = " + quotient);
+            choice();
         }
     }
 
@@ -75,12 +72,12 @@ public class Calculator {
 
     public void choice() {
         while (true) {
-            System.out.println("Желаете продолжить?(Да/Нет)");
+            System.out.println("Желаете продолжить?\n1.Да\n2.Нет");
             Scanner scanner = new Scanner(System.in);
             String choice2 = scanner.nextLine();
-            if (choice2.equals("Да")) {
+            if (choice2.equals("1")) {
                 run();
-            } else if (choice2.equals("Нет")) {
+            } else if (choice2.equals("2")) {
                 System.exit(0);
             }
 
